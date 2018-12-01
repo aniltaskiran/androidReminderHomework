@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
         ListView listView = findViewById(R.id.reminderListView);
 
 
-        ArrayList<Reminder> reminders = new ArrayList<>();
+        ArrayList<Reminder> reminders;
 
-        reminders.add(new Reminder("başlık","detay","time", "date"));
-        reminders.add(new Reminder("başlık2","detay2","time2", "date2"));
+       reminders = new DatabaseManager(this).getReminderData();
+
         // Create the adapter to convert the array to views
         ReminderListAdapter adapter = new ReminderListAdapter(reminders, this);
         // Attach the adapter to a ListView
